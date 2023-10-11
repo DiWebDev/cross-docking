@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <title>Day Counter</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="wrapper__inputs">
+        <div class="input__block">
+          <div>
+            <label for="package">Поставка №</label>
+            <input type="text" name="package" id="package" />
+          </div>
+        </div>
+        <div class="input__block">
+          <div>
+            <label for="one">Склад отгрузки</label>
+            <input type="text" name="one" id="one" required />
+          </div>
+          <div>
+            <label for="two">Склад размещения</label>
+            <input type="text" name="two" id="two" required />
+          </div>
+        </div>
+
+        <div class="input__block">
+          <div>
+            <label for="start">Дата отгрузки</label>
+            <input
+              type="date"
+              id="start"
+              name="trip-start"
+              value="2023-09-01"
+              min="2023-09-01"
+              max="2024-01-01"
+              required
+            />
+          </div>
+          <div>
+            <label for="days">Количество дней в пути</label>
+            <input type="number" name="days" id="amount" required />
+          </div>
+        </div>
+      </div>
+      <div class="wrapper__btn">
+        <button class="button-26 reset">Сбросить данные</button>
+        <button class="button-26" id="count" disabled>Рассчитать</button>
+      </div>
+
+      <div class="wrapper__exp">
+        <p>Срок приемки: <span id="expiry">не рассчитан</span></p>
+      </div>
+
+      <div class="status__options">
+        <div class="status__options-title">
+          * Необходимо проверить статус и местоположение поставки через Metazon
+        </div>
+        <br />
+        <div>
+          * Если последний статус по WMS <strong>"Приёмка"</strong> - действуем
+          по кейсу:
+          <a href="#"
+            >Почему до сих пор не весь товар принят по моей поставке?</a
+          >
+        </div>
+        <br />
+        <div>
+          * Если поставка в WMS Завершена, а в лк статус отличный - переходим во
+          вкладку
+          <strong>"Поставка в WMS Завершена, а в лк статус отличный."</strong>
+        </div>
+        <fieldset class="radio">
+          <legend>Выбери статус:</legend>
+
+          <div>
+            <input
+              class="custom-radio"
+              type="radio"
+              id="radioZero"
+              name="st"
+              value="zero"
+            />
+            <label for="radioZero"
+              >Прибыла на склад / Разгружена в транзитном складе</label
+            >
+          </div>
+
+          <div>
+            <input
+              class="custom-radio"
+              type="radio"
+              id="radioOne"
+              name="st"
+              value="one"
+            />
+            <label for="radioOne">Отправлена с транзитного склада</label>
+          </div>
+
+          <div>
+            <input
+              class="custom-radio"
+              type="radio"
+              id="radioTwo"
+              name="st"
+              value="two"
+            />
+            <label for="radioTwo"
+              >Разгрузка началась / Разгрузка окончилась</label
+            >
+          </div>
+
+          <div>
+            <input
+              class="custom-radio"
+              type="radio"
+              id="radioThree"
+              name="st"
+              value="three"
+            />
+            <label for="radioThree"
+              >Отменена / Создана / Вернули в Создано / Указана планируемая дата
+              прибытия без статуса / Статус по WMS вернули в Создано
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="radio">
+          <legend>Выбери партнёра:</legend>
+          <div>
+            <input
+              class="custom-radio"
+              type="radio"
+              id="russian"
+              name="partner"
+              value="russian"
+            />
+            <label for="russian">РФ</label>
+          </div>
+          <div>
+            <input
+              class="custom-radio"
+              type="radio"
+              id="sng"
+              name="partner"
+              value="sng"
+            />
+            <label for="sng">СНГ</label>
+          </div>
+        </fieldset>
+        <div class="answer__btn">
+          <button class="button-26 answer-button" disabled>
+            Получить ответ
+          </button>
+        </div>
+      </div>
+
+      <div class="msg__block">
+        <p>Сроки на доставку и приёмку вышли. Переходи в шаг 3</p>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modal__block">
+        <div class="modal__container">
+          <div class="modal__header">
+            <div class="modal__title">
+              <h2>Ответ</h2>
+            </div>
+            <button class="modal__close">
+              <img src="./assets/images/close.svg" alt="" />
+            </button>
+          </div>
+          <div class="modal__content-wrapper">
+            <button class="modal__copy-btn">
+              <img
+                class="modal__copy"
+                src="https://cdn4.iconfinder.com/data/icons/basic-user-interface-elements/700/copy-duplicate-multiply-clone-1024.png"
+                alt="copy"
+              />
+              <p class="modal__copy-popup">Скопировано</p>
+            </button>
+            <div class="modal__content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/main.js" type="module"></script>
+  </body>
+</html>
