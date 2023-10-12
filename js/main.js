@@ -152,6 +152,7 @@ class ButtonsLogic {
       expiry.classList.remove('negative');
       msg.classList.remove('active');
       SwitchLogic.clearRadio();
+      answerBtn.disabled = true
       inputsToggle.forEach((i) => (i.disabled = false));
     });
   }

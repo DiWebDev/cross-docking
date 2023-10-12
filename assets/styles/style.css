@@ -12,12 +12,16 @@
    --colorSix: #0045bd;
 }
 
+html{
+   height: 100%;
+}
+
 body {
    font-family: Inter, Arial, Helvetica, sans-serif;
    display: flex;
    justify-content: center;
    align-items: center;
-   height: 100vh;
+   height: 100%;
    background-color: var(--colorFour);
    color: var(--colorThree);
    font-size: 20px;
@@ -32,7 +36,8 @@ body {
    padding: 15px;
    background-color: white;
    width: 100%;
-   max-height: 100%;
+   max-height: 700px;
+   /* height: 100%; */
    overflow: auto;
 }
 
